@@ -1,0 +1,49 @@
+@import './element-variables.scss';
+
+.margin_bottom_15 {
+  margin-bottom: 15px;
+}
+.search-container{
+  background-color: #FFFFFF;
+  padding: 20px 5px 0 5px;
+  margin-bottom: 15px;
+}
+.table-title{
+	padding: 10px 20px;
+	background-color: #fff;
+	font-size: 22px;
+	font-weight: bold;
+	position: relative;
+	color: #000;
+	margin-bottom: 15px;
+  box-sizing: border-box;
+}
+.table-title::after{
+	position: absolute;
+	z-index: 1;
+	left: 0;
+	height: 25px;
+	width: 3px;
+	background-color: $--color-primary;
+	display: inline-block;
+	content: '';
+}
+.table-container{
+  padding: 10px;
+  background-color: #FFFFFF;
+}
+.white_bg{
+  background-color: #FFFFFF;
+  padding: 10px;
+  box-sizing: border-box;
+}
+// 推广
+.extend-title{
+  padding: 15px 0;
+}
+.extend-radio-container{
+  padding-left: 40px;
+}
+.extend-radio-container .el-radio{
+  margin-bottom: 10px;
+}

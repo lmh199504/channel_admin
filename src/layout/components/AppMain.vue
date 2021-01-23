@@ -29,6 +29,7 @@ export default {
   width: 100%;
   position: relative;
   overflow: hidden;
+  background-color: #eaeef4;
 }
 
 .fixed-header+.app-main {

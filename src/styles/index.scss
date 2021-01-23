@@ -4,6 +4,7 @@
 @import './element-ui.scss';
 @import './sidebar.scss';
 @import './btn.scss';
+@import  './custom.scss';
 
 body {
   height: 100%;
@@ -130,7 +131,7 @@ aside {
 }
 
 .pagination-container {
-  margin-top: 30px;
+  // margin-top: 30px;
 }
 
 .text-center {
@@ -188,4 +189,10 @@ aside {
 
 .multiselect--active {
   z-index: 1000 !important;
+}
+
+@media screen and ( max-width:600px ) {
+	.app-container {
+	  padding: 0px;
+	}
 }
