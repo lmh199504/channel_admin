@@ -1,7 +1,10 @@
 <template>
-  <div class="app-container">
+  <div>
     <div class="search-container">
       <el-form ref="form" :model="listQuery" :inline="true" label-width="68px">
+        <el-form-item label="会员ID">
+          <el-col><el-input v-model="listLoading.member_id" placeholder="会员ID" /></el-col>
+        </el-form-item>
         <el-form-item label="开始日期">
           <el-col><el-date-picker
             v-model="listQuery.start_time"
@@ -23,15 +26,10 @@
     </div>
     <div class="table-container">
       <el-table v-loading="listLoading" :data="list" border>
-        <el-table-column label="日期" prop="member_id" align="center" />
-        <el-table-column label="注册量" prop="member_id" align="center" />
-        <el-table-column label="VIP金额" prop="member_id" align="center" />
-        <el-table-column label="VIP佣金" prop="member_id" align="center" />
-        <el-table-column label="聊币金额" prop="member_id" align="center" />
-        <el-table-column label="聊币佣金" prop="member_id" align="center" />
-        <el-table-column label="钻石金额" prop="member_id" align="center" />
-        <el-table-column label="钻石佣金" prop="member_id" align="center" />
-        <el-table-column label="总收益" prop="member_id" align="center" />
+        <el-table-column label="注册时间" prop="member_id" align="center" />
+        <el-table-column label="充值类型" prop="member_id" align="center" />
+        <el-table-column label="会员ID" prop="member_id" align="center" />
+        <el-table-column label="充值金额" prop="member_id" align="center" />
       </el-table>
     </div>
     <pagination v-show="total>0" :total="total" :page.sync="listQuery.page" :limit.sync="listQuery.limit" @pagination="getList" />

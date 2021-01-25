@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div>
     <div class="search-container">
       <el-form ref="form" :model="listQuery" :inline="true" label-width="68px">
         <el-form-item label="开始日期">

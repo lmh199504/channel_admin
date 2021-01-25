@@ -45,7 +45,9 @@ export function parseTime(time, cFormat) {
   const time_str = format.replace(/{([ymdhisa])+}/g, (result, key) => {
     const value = formatObj[key]
     // Note: getDay() returns 0 on Sunday
-    if (key === 'a') { return ['日', '一', '二', '三', '四', '五', '六'][value ] }
+    if (key === 'a') {
+      return ['日', '一', '二', '三', '四', '五', '六'][value]
+    }
     return value.toString().padStart(2, '0')
   })
   return time_str
@@ -355,3 +357,85 @@ export function removeClass(ele, cls) {
     ele.className = ele.className.replace(reg, ' ')
   }
 }
+
+// 获取本周、上周、本月的日期，每周从星期一开始
+export function getSelectDate(t) {
+  var now = new Date() // 当前日期
+  var nowDayOfWeek = now.getDay() // 今天本周的第几天
+  var nowDay = now.getDate() // 当前日
+  var nowMonth = now.getMonth() // 当前月
+  var nowYear = now.getFullYear() // 当前年
+  var start_date = ''
+  var end_date = ''
+  switch (t) {
+    case '0': // 全部
+      start_date = ''
+      end_date = ''
+      return {
+        start_date,
+        end_date
+      }
+    case '1': // 本周
+      start_date = formatDate(new Date(nowYear, nowMonth, nowDay - nowDayOfWeek + 1))
+      end_date = formatDate(new Date()) // (nowYear, nowMonth, nowDay - nowDayOfWeek + 7)
+      return {
+        start_date,
+        end_date
+      }
+    case '2': // 上周
+      start_date = formatDate(new Date(nowYear, nowMonth, nowDay - nowDayOfWeek - 6))
+      end_date = formatDate(new Date(nowYear, nowMonth, nowDay - nowDayOfWeek - 0))
+      return {
+        start_date,
+        end_date
+      }
+    case '3': // 本月
+      start_date = formatDate(new Date(nowYear, nowMonth, 1))
+      end_date = formatDate(new Date()) // (new Date(nowYear, nowMonth + 1, 1) - 1000 * 60 * 60 * 24)
+      return {
+        start_date,
+        end_date
+      }
+    case '4': // 今日
+      start_date = formatDate(new Date())
+      end_date = formatDate(new Date())
+      return {
+        start_date,
+        end_date
+      }
+    case '5': // 昨日
+      start_date = formatDate(new Date(nowYear, nowMonth, nowDay - 1))
+      end_date = formatDate(new Date(nowYear, nowMonth, nowDay - 1))
+      return {
+        start_date,
+        end_date
+      }
+    case '6': // 上月
+      start_date = formatDate(new Date(nowYear, nowMonth - 1, 1))
+      end_date = formatDate(new Date(nowYear, nowMonth, 0))
+      return {
+        start_date,
+        end_date
+      }
+    default:
+      return {
+        start_date,
+        end_date
+      }
+  }
+}
+
+function formatDate(date) {
+  var myyear = date.getFullYear()
+  var mymonth = date.getMonth() + 1
+  var myweekday = date.getDate()
+  if (mymonth < 10) {
+    mymonth = '0' + mymonth
+  }
+  if (myweekday < 10) {
+    myweekday = '0' + myweekday
+  }
+  return myyear + '-' + mymonth + '-' + myweekday
+}
+
+console.log(getSelectDate('6'))
