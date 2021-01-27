@@ -92,6 +92,19 @@ export const constantRoutes = [
         meta: { title: 'Profile', icon: 'user', noCache: true }
       }
     ]
+  },
+  {
+    path: '/changePassWord',
+    component: Layout,
+    hidden: true,
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/myviews/changePassWord/index'),
+        name: 'changePassWord',
+        meta: { title: '修改密码' }
+      }
+    ]
   }
 ]
 
