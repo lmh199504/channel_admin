@@ -4,7 +4,7 @@
     <div class="extend-title">自定义域名：</div>
     <div class="extend-radio-container">
       <el-input v-model="formData.selfDomain" class="selfDomain" @input="formData.domain = ''" />
-      <div class="explain" v-text="domainexplain" />
+      <div class="explain" :style="{ background: colorTheme }" v-text="domainexplain" />
     </div>
 
     <div class="extend-title">选择域名:</div>
@@ -103,6 +103,11 @@ export default {
       },
       needChangeTemDomain: '', // 需要更换模板的域名
       domainexplain: 'domainexplain'
+    }
+  },
+  computed: {
+    colorTheme: function() {
+      return this.$store.state.settings.theme
     }
   },
   watch: {
