@@ -5,6 +5,7 @@
         <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
           <div class="container">
             <h2 v-if="type==='edit'">渠道ID：20</h2>
+            <h2 v-else>渠道信息</h2>
             <el-form-item label="渠道名称">
               <el-input v-model="form.channel_name" />
             </el-form-item>

@@ -117,7 +117,7 @@ export const asyncRoutes = [
     path: '/promotionCenter',
     component: Layout,
     name: 'promotionCenter',
-    meta: { title: '推广中心', icon: 'user' },
+    meta: { title: '推广中心', icon: 'promotionCenter' },
     redirect: '/promotionCenter/startToPromote',
     children: [
       {
@@ -159,7 +159,7 @@ export const asyncRoutes = [
     path: '/finance',
     component: Layout,
     name: 'finance',
-    meta: { title: '财务中心', icon: 'user' },
+    meta: { title: '财务中心', icon: 'finance' },
     redirect: '/finance/currentUserSettlement',
     children: [
       {
