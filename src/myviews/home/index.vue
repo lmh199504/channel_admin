@@ -1,5 +1,5 @@
 <template>
-  <div class="app-container">
+  <div class="home-container">
     <div class="table-title">
       分成信息
     </div>
@@ -120,5 +120,8 @@ export default {
       cursor: pointer;
       text-decoration: underline;
     }
+  }
+ .home-container{
+    padding: 20px;
   }
 </style>
